@@ -19,6 +19,9 @@ class OpCode(object):
             done = True
         return done, ptr+4
     
+    def noun_verb(self, stream, ptr):
+        
+    
     def run(self, stream):
         ptr = 0
         done = False
