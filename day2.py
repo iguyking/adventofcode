@@ -4,30 +4,28 @@ class OpCode(object):
         op = stream[ptr]
         if op == 99:
             done = True
-            return done, ptr+4
+            return done, ptr + 4
 
-        pos1 = stream[ptr+1]
-        pos2 = stream[ptr+2]
-        end = stream[ptr+3]
+        pos1 = stream[ptr + 1]
+        pos2 = stream[ptr + 2]
+        end = stream[ptr + 3]
         done = False
         if op == 1:
             stream[end] = stream[pos1] + stream[pos2]
         elif op == 2:
             stream[end] = stream[pos1] * stream[pos2]
         else:
-            print(f"Invalid Ops Code {op} at position {ptr}")
+            # print(f"Invalid Ops Code {op} at position {ptr}")
             done = True
-        return done, ptr+4
-    
-    def noun_verb(self, stream, ptr):
-        
-    
+        return done, ptr + 4
+
     def run(self, stream):
         ptr = 0
         done = False
         while not done:
             done, ptr = ops.execute_opcode(stream, ptr)
-        return ",".join(map(str,stream))
+        return ",".join(map(str, stream))
+
 
 ops = OpCode()
 
@@ -35,10 +33,10 @@ ops = OpCode()
 # ops.run(example)
 # print(example)
 
-adventtest1 = [1,9,10,3,2,3,11,0,99,30,40,50]
+adventtest1 = [1, 9, 10, 3, 2, 3, 11, 0, 99, 30, 40, 50]
 print(f"Advent Test 1: {ops.run(adventtest1)}")
 
-at2 = [1,0,0,0,99]
+at2 = [1,0,0,0,99]  # E231
 print(f"Advent Test 2: {ops.run(at2)}")
 
 at3 = [2,3,0,3,99]
@@ -57,6 +55,15 @@ with open("day2.input", "r") as inputfile:
 prog = line.strip().split(',')
 prog = list(map(int, prog))
 
-print(f"Day2 Part 1: {ops.run(prog)}")
+print(f"Day2 Part 1: {ops.run(prog.copy())}")
 
 
+for no1 in range(0,99):
+    for no2 in range(0,99):
+        runlist = prog.copy()
+        runlist[1] = no1
+        runlist[2] = no2
+        res = ops.run(runlist)
+        # print(f"Zero Position: {runlist[0]}")
+        if runlist[0] == 19690720:
+            print(f"Found it {no1}:{no2}")
