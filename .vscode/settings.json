@@ -1,6 +1,14 @@
 {
-    "python.pythonPath": "C:\\Users\\iguy\\scoop\\apps\\python37\\current\\python.exe",
+    "python.pythonPath": "C:\\Users\\iguy\\AppData\\Local\\pypoetry\\Cache\\virtualenvs\\adventofcode-DFaHzyLe-py3.7\\Scripts\\python.exe",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
-    "python.linting.enabled": true
+    "python.linting.flake8Args": [
+        "--max-line-length=120"
+    ],
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length 120"
+    ],
+    "editor.formatOnSave": true
 }

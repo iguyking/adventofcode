@@ -1,4 +1,3 @@
-
 class OpCode(object):
     def execute_opcode(self, stream, ptr):
         op = stream[ptr]
@@ -36,30 +35,30 @@ ops = OpCode()
 adventtest1 = [1, 9, 10, 3, 2, 3, 11, 0, 99, 30, 40, 50]
 print(f"Advent Test 1: {ops.run(adventtest1)}")
 
-at2 = [1,0,0,0,99]  # E231
+at2 = [1, 0, 0, 0, 99]  # E231
 print(f"Advent Test 2: {ops.run(at2)}")
 
-at3 = [2,3,0,3,99]
+at3 = [2, 3, 0, 3, 99]
 print(f"Advent Test 3: {ops.run(at3)}")
 
-at4 = [2,4,4,5,99,0]
+at4 = [2, 4, 4, 5, 99, 0]
 print(f"Advent Test 4: {ops.run(at4)}")
 
-at5 = [1,1,1,4,99,5,6,0,99]
+at5 = [1, 1, 1, 4, 99, 5, 6, 0, 99]
 print(f"Advent Test 5: {ops.run(at5)}")
 
 
 with open("day2.input", "r") as inputfile:
     line = inputfile.readline()
 
-prog = line.strip().split(',')
+prog = line.strip().split(",")
 prog = list(map(int, prog))
 
 print(f"Day2 Part 1: {ops.run(prog.copy())}")
 
 
-for no1 in range(0,99):
-    for no2 in range(0,99):
+for no1 in range(0, 99):
+    for no2 in range(0, 99):
         runlist = prog.copy()
         runlist[1] = no1
         runlist[2] = no2
