@@ -67,7 +67,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 version = "0.4.3"
 
 [[package]]
-category = "dev"
+category = "main"
 description = "Discover and load entry points from installed packages."
 name = "entrypoints"
 optional = false
@@ -75,7 +75,7 @@ python-versions = ">=2.7"
 version = "0.3"
 
 [[package]]
-category = "dev"
+category = "main"
 description = "the modular source code checker: pep8, pyflakes and co"
 name = "flake8"
 optional = false
@@ -105,7 +105,7 @@ docs = ["sphinx", "rst.linker"]
 testing = ["packaging", "importlib-resources"]
 
 [[package]]
-category = "dev"
+category = "main"
 description = "McCabe checker, plugin for flake8"
 name = "mccabe"
 optional = false
@@ -165,7 +165,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "1.8.0"
 
 [[package]]
-category = "dev"
+category = "main"
 description = "Python style guide checker"
 name = "pycodestyle"
 optional = false
@@ -173,7 +173,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 version = "2.5.0"
 
 [[package]]
-category = "dev"
+category = "main"
 description = "passive checker of Python programs"
 name = "pyflakes"
 optional = false
@@ -270,7 +270,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["pathlib2", "contextlib2", "unittest2"]
 
 [metadata]
-content-hash = "b4d77c6e02b5d7abb25a86eb96bf941f78ad6f6ebc77dedb5181237336d1334c"
+content-hash = "1700a134deff2e82d6604df361d946b9d97fe853dfca473ed6c66e697604948d"
 python-versions = "^3.7"
 
 [metadata.files]
