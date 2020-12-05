@@ -1,0 +1,7 @@
+byr \d{4} 1920-2002
+iyr \d{4} 2010-2020
+eyr \d{4} 2020-2030
+hgt \d+(cm|in) cm:150-193,in:59-76
+hcl #[0-9a-f]{6}
+ecl amb|blu|brn|gry|grn|hzl|oth
+pid \d{9}
