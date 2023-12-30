@@ -3,10 +3,10 @@ using System.Diagnostics;
 // See https://aka.ms/new-console-template for more information
 
 
-// string day1file = "day01part01-testdata.txt";  // Part 1 = 142, Part 2 = 142
-string day1file = "day01part02-testdata.txt";     // Part 2 = 281
-// string day1file = "day01part01-mytest.txt";    // Part 1 = 154, Part 2 = 155
-// string day1file = "day01part01.txt";  // actual data file
+//string day1file = "day01part01-testdata.txt";  // Part 1 = 142, Part 2 = 142
+//string day1file = "day01part02-testdata.txt";     // Part 2 = 281
+//string day1file = "day01part01-mytest.txt";    // Part 1 = 154, Part 2 = 155
+string day1file = "day01part01.txt";  // actual data file
 
 
 
@@ -23,8 +23,9 @@ foreach (string calibration in System.IO.File.ReadLines(@day1file))
     if (firstdigit.Length == 0) { firstdigit = "0"; }
     if (lastdigit.Length == 0) { lastdigit = "0"; }
 
-    Debug.WriteLine($"{firstdigit},{lastdigit} - {part1total}");
+
     part1total += Int32.Parse($"{firstdigit}{lastdigit}");
+    Debug.WriteLine($"Part1: {firstdigit},{lastdigit} - {part1total}");
 }
 
 // Day 1 Part 2
@@ -32,7 +33,7 @@ int part2total = 0;
 foreach (string calibration in System.IO.File.ReadLines(@day1file))
 {
     Debug.WriteLine(calibration);
-    string replacecalibration = Advent.replaceTextNumbers(calibration);
+    string replacecalibration = Advent.ReplaceTextNumbers(calibration);
     Console.WriteLine(replacecalibration); 
     string firstdigit = new string(replacecalibration.Where(c => char.IsDigit(c)).Take(1).ToArray());
     char[] revered = replacecalibration.ToCharArray();
@@ -40,16 +41,24 @@ foreach (string calibration in System.IO.File.ReadLines(@day1file))
     string reveredstr = new string(revered);
     string lastdigit = new string(revered.Where(c => char.IsDigit(c)).Take(1).ToArray());
     part2total += Int32.Parse($"{firstdigit}{lastdigit}");
-    Debug.WriteLine($"{firstdigit},{lastdigit} - {part1total}");
+    Debug.WriteLine($"Part2: {firstdigit},{lastdigit} - {part2total}");
 }
 
 Console.WriteLine($"Day1Part1 Total: {part1total}");
 Console.WriteLine($"Day1Part2 Total: {part2total}");
 public class Advent 
 {
-    public static string replaceTextNumbers (string s) 
+    public static string ReplaceTextNumbers (string s) 
     {
         IDictionary<string, int> textNumbers = new Dictionary<string, int>();
+        textNumbers.Add("oneight", 18);
+        textNumbers.Add("twone", 21);
+        textNumbers.Add("threeight",38);
+        textNumbers.Add("fiveight", 58);
+        textNumbers.Add("nineight", 98);
+        textNumbers.Add("sevenine", 79);
+        textNumbers.Add("eightwo", 82);
+        textNumbers.Add("eighthree", 83);
         textNumbers.Add("one", 1);
         textNumbers.Add("two", 2);
         textNumbers.Add("three", 3);
@@ -59,8 +68,10 @@ public class Advent
         textNumbers.Add("seven", 7);
         textNumbers.Add("eight", 8);
         textNumbers.Add("nine", 9);
+
         
         string returnstr = textNumbers.Aggregate(s, (current,value) => current.Replace(value.Key.ToString(), value.Value.ToString()));        
+        Debug.WriteLine($"StringMatch: {returnstr}");
         return new string(returnstr);
     }
 }
